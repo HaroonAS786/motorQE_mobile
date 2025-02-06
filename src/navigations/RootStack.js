@@ -11,6 +11,7 @@ import AuthStack from './AuthStack';
 import MainStack from './MainStack';
 import SplashScreen from '../screens/splash/SplashScreen';
 import OnBoardScreen from '../screens/onBoard/OnBoardScreen';
+import { continueSession, signOut } from '../redux/actions';
 
 const Stack = createStackNavigator();
 export const AuthContext = createContext();
@@ -43,21 +44,21 @@ const InitialStack = () => {
   //     };
   // }, []);
 
-  // useEffect(() => {
-  //     setTimeout(() => {
-  //         SplashScreen.hide();
-  //     }, 3000);
+  useEffect(() => {
+      // setTimeout(() => {
+      //     SplashScreen.hide();
+      // }, 3000);
 
-  //     const handleNav = () => {
-  //         const userToken = getUserAccessToken();
-  //         if (userToken) {
-  //             dispatch(continueSession(userToken));
-  //         } else {
-  //             dispatch(signOut());
-  //         }
-  //     };
-  //     handleNav();
-  // }, []);
+      // const handleNav = () => {
+      //     const userToken = 'xyz';
+      //     if (userToken) {
+      //         dispatch(continueSession(userToken));
+      //     } else {
+      //         dispatch(signOut());
+      //     }
+      // };
+      // handleNav();
+  }, []);
 
   return (
     <AuthContext.Provider value={authState}>
@@ -66,8 +67,7 @@ const InitialStack = () => {
           headerShown: false,
           animations: screenAnimation,
         }}>
-        {/* {authState?.userToken ? ( */}
-        {false ? (
+        {authState?.userToken ? (
           <Stack.Screen
             options={{gestureEnabled: false}}
             component={MainStack}

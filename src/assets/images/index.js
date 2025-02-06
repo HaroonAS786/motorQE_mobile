@@ -4,4 +4,6 @@ export const IMAGES = {
     googleLogo: require("./googleIcon.png"),
     garageLogo: require("./garage.png"),
     carGroupLogo: require("./carGroup.png"),
+    sellCarLogo: require("./sellCar.png"),
+    sellBuyCar: require("./sellBuyCar.png"),
 };

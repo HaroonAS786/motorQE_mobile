@@ -1,7 +1,6 @@
 import React, {useState, useCallback} from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, TextInput, View,Animated} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import Animated from 'react-native-reanimated';
 
 import {ErrorIcon, SuccessIcon} from '../assets/svgs';
 import {themeColors} from '../config/colors';
@@ -129,7 +128,7 @@ const styles = StyleSheet.create({
     color: themeColors.black,
     backgroundColor: '#F3F3F3',
     width: '92%',
-    height: 28,
+    // height: 28,
     borderRadius: 8,
   },
   msgBox: {

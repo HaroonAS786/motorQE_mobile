@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import CheckBox from "@react-native-community/checkbox";
 import {
     Image,
+    Keyboard,
     TouchableOpacity,
     View
 } from "react-native";
@@ -21,6 +22,8 @@ import useLoading from "../../../hooks/useLoading";
 import { navigationRef } from "../../../navigations/RootNaviagtion";
 import { getStyles } from "./LoginScreen.style";
 import { IMAGES } from "../../../assets/images";
+import store from "../../../redux/store";
+import { signIn } from "../../../redux/actions";
 
 const LoginScreen = (props) => {
 
@@ -32,13 +35,16 @@ const LoginScreen = (props) => {
     // const { userSignIn } = useLoginScreen();
     const styles = getStyles();
     const [passwordToggle, setPasswordToggle] = useState(false);
-    const [rememberMe, setRememberMe] = useState(false);
     const [data, setData] = useState({
         email: {
-            value: "",
+            value: "haroon.asif@tkxel.com",
             errors: [],
         },
         password: {
+            value: "Aa112233",
+            errors: [],
+        },
+        phoneNumber: {
             value: "",
             errors: [],
         },
@@ -66,6 +72,9 @@ const LoginScreen = (props) => {
             if (tag === "password") {
                 valueToSet.value = t;
             }
+            if (tag === "phoneNumber") {
+                valueToSet.value = t;
+            }
             return {
                 ...prevState,
                 [tag]: valueToSet,
@@ -73,15 +82,23 @@ const LoginScreen = (props) => {
         });
     };
 
-    const handleLogin = async () => {
+    const handleLogin = () => {
         if (!isValidated) {
-            // setData({
-            //     email: { errors: [" Email Required"] },
-            //     password: { errors: [" Password Required"] },
-            // });
+            setData({
+                email: { errors: [" Email Required"] },
+                password: { errors: [" Password Required"] },
+            });
         } else {
-            // Keyboard.dismiss();
-            // startLoading();
+            Keyboard.dismiss();
+            startLoading();
+            setTimeout(() => {
+                store.dispatch(
+                    signIn({
+                        token: 'xyz',
+                        user: {},
+                    })
+                );
+            }, 3000)
             // const body = {
             //     username: data?.email?.value,
             //     password: data?.password?.value,
@@ -130,7 +147,7 @@ const LoginScreen = (props) => {
                 <CustomText color={themeColors.label} h6>Login with Whatsapp</CustomText>
                 <Spacer height={SCREEN_HEIGHT * 0.04} />
                 <View style={styles.fieldContainer}>
-                    {/* <Spacer height={SCREEN_HEIGHT * 0.04} /> */}
+
                     <>
                         <PhoneInput
                             value={formattedValue}
@@ -141,10 +158,10 @@ const LoginScreen = (props) => {
                             }}
                             placeholder={"e.g 999 999 9999"}
                             onChangePhoneNumber={(val) => {
-                                // handleInput(
-                                //     val.replace(/\s/g, ""),
-                                //     "phone"
-                                // );
+                                handleInput(
+                                    val.replace(/\s/g, ""),
+                                    "phoneNumber"
+                                );
                                 setFormattedValue(val);
                             }}
                             phoneInputStyles={{
@@ -187,29 +204,27 @@ const LoginScreen = (props) => {
                     </View>
                     <Spacer height={SCREEN_HEIGHT * 0.02} />
                     <Button
-                        loading={isLoading}
-                        disabled={true}
+                        // loading={isLoading}
+                        disabled={!data?.phoneNumber?.value}
                         label={"GET OTP"}
                         buttonContainerStyle={styles.loginBtn}
-                        onPress={handleLogin}
+                        // onPress={handleLogin}
                     />
                     <Spacer height={SCREEN_HEIGHT * 0.03} />
                     <CustomText color={themeColors.label} style={{ textAlign: 'center' }} body>------  Or login with  ------</CustomText>
                     <Spacer height={SCREEN_HEIGHT * 0.03} />
                     <CustomTextInput
-                        // label={"Email"}
                         value={data?.email?.value}
                         spellCheck={false}
                         autoCapitalize={"none"}
                         placeholder={"name@email.com"}
                         keyboardType={"email-address"}
                         onChangeText={(t) => handleInput(t, "email")}
-                    // errors={data.email.errors}
-                    // success={data.email.success}
+                        errors={data?.email?.errors}
+                        success={data?.email?.success}
                     />
                     <Spacer height={SCREEN_HEIGHT * 0.02} />
                     <CustomTextInput
-                        // label={"Password"}
                         value={data?.password?.value}
                         placeholder={"Enter Password"}
                         onChangeText={(t) => handleInput(t, "password")}
@@ -224,8 +239,8 @@ const LoginScreen = (props) => {
                         rightIconPress={() =>
                             setPasswordToggle(!passwordToggle)
                         }
-                        errors={data.password.errors}
-                        success={data.password.success}
+                        errors={data?.password?.errors}
+                        success={data?.password?.success}
                     />
                     <Spacer height={SCREEN_HEIGHT * 0.04} />
                     <Button

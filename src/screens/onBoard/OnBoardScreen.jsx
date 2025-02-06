@@ -17,7 +17,7 @@ const OnBoardScreen = () => {
     const styles = getStyles()
     const [activeIndex, setActiveIndex] = useState(null); // Stores the selected card index
 
-    const handleContinue=()=>{
+    const handleContinue = () => {
         navigationRef.navigate("InitialStack")
     }
 
@@ -32,29 +32,27 @@ const OnBoardScreen = () => {
                 />
             </View>
             <Spacer height={SCREEN_HEIGHT * 0.05} />
-            <CustomText color={themeColors.label} h6>What would you like to do? </CustomText>
+            <CustomText color={themeColors.label} h6>What would you like to do?</CustomText>
             <Spacer height={SCREEN_HEIGHT * 0.05} />
             <View style={styles.container}>
-                <View>
-                    {
-                        OnBoardData?.map((val, indx) => {
-                            return (
-                                <OnboardCard
-                                    item={val}
-                                    key={indx}
-                                    index={indx}
-                                    activeIndex={activeIndex}
-                                    setActiveIndex={setActiveIndex}
-                                />
-                            )
-                        })
-                    }
-                </View>
+                {
+                    OnBoardData?.map((val, indx) => {
+                        return (
+                            <OnboardCard
+                                item={val}
+                                key={indx}
+                                index={indx}
+                                activeIndex={activeIndex}
+                                setActiveIndex={setActiveIndex}
+                            />
+                        )
+                    })
+                }
                 <Spacer height={SCREEN_HEIGHT * 0.05} />
                 <Button
-                    // loading={isLoading}
+                    disabled={activeIndex == null}
                     label={"CONTINUE"}
-                onPress={handleContinue}
+                    onPress={handleContinue}
                 />
             </View>
 

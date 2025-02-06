@@ -5,6 +5,7 @@ import ArrowDown from './ArrowDown';
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
 import ArrowUpIcon from './ArrowUp';
+import CarsIcon from './Cars';
 import ChangePasswordIcon from './ChangePassword';
 import CrossIcon from './Cross';
 import CustomerSupportIcon from './CustomerSupport';
@@ -14,11 +15,14 @@ import DeleteAccountIcon from './DeleteAccount';
 import DoneIcon from './Done';
 import EditIcon from './EditIcon';
 import ErrorIcon from './Error';
+import FilterIcon from './Filter';
+import GarageIcon from './Garage';
 import HandshakeIcon from './HandshakeIcon';
 import HomeIcon from './Home';
 import LogoutIcon from './Logout';
 import MenuIcon from './Menu';
 import MessageIcon from './Message';
+import MoreIcon from './More';
 import NotificationIcon from './Notifications';
 import NotificationsSettingsIcon from './NotificationsSettings';
 import OfferAcceptedIcon from './OfferAccepted';
@@ -39,6 +43,7 @@ import SuccessIcon from './Success';
 import WarningIcon from './Warning';
 import WhatsappIcon from './Whatsapp';
 import WhatsappCheckIcon from './WhatsappCheck';
+
 
 export {
   AddIcon,
@@ -82,4 +87,8 @@ export {
   WarningIcon,
   WhatsappIcon,
   WhatsappCheckIcon,
+  GarageIcon,
+  MoreIcon,
+  CarsIcon,
+  FilterIcon
 };

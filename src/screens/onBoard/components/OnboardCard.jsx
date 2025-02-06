@@ -7,7 +7,7 @@ import { SCREEN_HEIGHT } from '../../../config/typography'
 const OnboardCard = ({ item, index, activeIndex, setActiveIndex }) => {
     
     const handlePress = () => {
-        setActiveIndex(index); // Updates the selected card index, deselecting the previous one
+        setActiveIndex(index);
     }
 
     return (
@@ -28,7 +28,6 @@ const OnboardCard = ({ item, index, activeIndex, setActiveIndex }) => {
             </View>
             <Image
                 source={item.img}
-                resizeMode='cover'
                 style={styles.image}
             />
         </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Image, View } from 'react-native';
+import { Image, Platform, View } from 'react-native';
 
 import { themeColors } from '../../config/colors';
 import { navigationRef } from '../../navigations/RootNaviagtion';
@@ -21,7 +21,7 @@ const SplashScreen = () => {
     return (
         <View style={styles.container}>
             <Image source={IMAGES.splashLogo} />
-            <CustomText h6 bold style={{position:'absolute',top:SCREEN_HEIGHT*0.56}}>Dream.Buy.Drive</CustomText>
+            <CustomText h6 bold style={{position:'absolute',top:Platform.OS==="android"?SCREEN_HEIGHT*0.53: SCREEN_HEIGHT*0.56}}>Dream.Buy.Drive</CustomText>
         </View>
     );
 };
