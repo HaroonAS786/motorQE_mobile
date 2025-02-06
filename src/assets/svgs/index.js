@@ -1,19 +1,17 @@
 import AddIcon from './Add';
-import AlertIcon from './Alert';
-import AppleIcon from './Apple';
+import InvertCommasLeftIcon from './InvertCommasLeft';
+import Kilometer from './Kilometer';
 import ArrowDown from './ArrowDown';
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
 import ArrowUpIcon from './ArrowUp';
 import CarsIcon from './Cars';
-import ChangePasswordIcon from './ChangePassword';
 import CrossIcon from './Cross';
-import CustomerSupportIcon from './CustomerSupport';
 import DateIcon from './Date';
 import DeleteIcon from './Delete';
 import DeleteAccountIcon from './DeleteAccount';
 import DoneIcon from './Done';
-import EditIcon from './EditIcon';
+import InvertCommasRightIcon from './InvertCommasRight';
 import ErrorIcon from './Error';
 import FilterIcon from './Filter';
 import GarageIcon from './Garage';
@@ -25,7 +23,7 @@ import MessageIcon from './Message';
 import MoreIcon from './More';
 import NotificationIcon from './Notifications';
 import NotificationsSettingsIcon from './NotificationsSettings';
-import OfferAcceptedIcon from './OfferAccepted';
+import MonthIndicatorIcon from './MonthIndicator';
 import OffersNotifyIcon from './OfferNotify';
 import OfferSent from './OfferSent';
 import OffersIcon from './Offers';
@@ -37,30 +35,33 @@ import PhoneDownArrow from './PhoneDownArrow';
 import ProfileIcon from './Profile';
 import PropertyListingIcon from './PropertyListing';
 import RemindersIcon from './Reminders';
+import SeacrhYearIcon from './SeacrhYear';
 import SearchIcon from './Search';
 import SecondaryArrowLeft from './SecondaryArrowRight';
 import SuccessIcon from './Success';
 import WarningIcon from './Warning';
 import WhatsappIcon from './Whatsapp';
 import WhatsappCheckIcon from './WhatsappCheck';
+import CalenderIcon from './Calender';
+import CylinderIcon from './Cylinder';
 
 
 export {
   AddIcon,
-  AlertIcon,
-  AppleIcon,
+  InvertCommasLeftIcon,
+  Kilometer,
   ArrowDown,
   ArrowLeft,
   ArrowRight,
   ArrowUpIcon,
-  ChangePasswordIcon,
+  CalenderIcon,
   CrossIcon,
-  CustomerSupportIcon,
+  CylinderIcon,
   DateIcon,
   DeleteAccountIcon,
   DeleteIcon,
   DoneIcon,
-  EditIcon,
+  InvertCommasRightIcon,
   ErrorIcon,
   HandshakeIcon,
   HomeIcon,
@@ -69,7 +70,7 @@ export {
   MessageIcon,
   NotificationIcon,
   NotificationsSettingsIcon,
-  OfferAcceptedIcon,
+  MonthIndicatorIcon,
   OfferSent,
   OffersIcon,
   OffersNotifyIcon,
@@ -90,5 +91,6 @@ export {
   GarageIcon,
   MoreIcon,
   CarsIcon,
-  FilterIcon
+  FilterIcon,
+  SeacrhYearIcon
 };

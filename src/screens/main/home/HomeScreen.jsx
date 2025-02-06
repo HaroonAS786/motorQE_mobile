@@ -1,22 +1,30 @@
-import React, { useState } from 'react'
-import LayoutContainer from '../../../components/LayoutContainer'
-import SearchBar from '../../../components/SeacrhBar'
+import React, { useState } from 'react';
 import { Image, View } from 'react-native';
-import { IMAGES } from '../../../assets/images';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../config/typography';
-import CustomText from '../../../components/CustomText';
-import { themeColors } from '../../../config/colors';
-import Button from '../../../components/Button';
-import { getStyles } from './HomeScreen.style';
 import LinearGradient from 'react-native-linear-gradient';
+import { IMAGES } from '../../../assets/images';
+import Button from '../../../components/Button';
+import CustomText from '../../../components/CustomText';
+import LayoutContainer from '../../../components/LayoutContainer';
+import SearchBar from '../../../components/SeacrhBar';
 import Spacer from '../../../components/Spacer';
-
+import { themeColors } from '../../../config/colors';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../config/typography';
+import { getStyles } from './HomeScreen.style';
+import CarByBodyScreen from './components/CarByBodyScreen';
+import SearchByYearScreen from './components/SearchByYearScreen';
+import SearchByBrandScreen from './components/SeacrhByBrandScreen';
+import SearchForCarEngineScreen from './components/SearchForCarEngineScreen';
+import SearchCarByBudgetScreen from './components/SearchCarByBudgetScreen';
+import FeaturedShowRoomScreen from './components/FeaturedShowRoomScreen';
+import FeaturedCarScreen from './components/FeaturedCarScreen';
+import RentCarScreen from './components/RentCarScreen';
+import MoreCarBannerCard from './components/MoreCarCard';
+import ClientTestimonialScreen from './components/ClientTestimonialsScreen';
 
 const HomeScreen = () => {
 
     const [searchValue, setSearchValue] = useState("");
     const styles = getStyles()
-
 
     return (
         <LayoutContainer noHeight>
@@ -25,7 +33,6 @@ const HomeScreen = () => {
                 placeholder={"Search"}
                 onChangeText={(val) => {
                     setSearchValue(val);
-                    // setResetSearch(val);
                 }}
             />
             <Spacer height={SCREEN_HEIGHT * 0.04} />
@@ -52,15 +59,16 @@ const HomeScreen = () => {
                     />
                 </View>
             </View>
-            <View style={styles.container}>
-                <Spacer height={SCREEN_HEIGHT * 0.03} />
-                <CustomText
-                    subtitle
-                    bold
-                    color={themeColors.black} >
-                    Car by body type
-                </CustomText>
-            </View>
+            <CarByBodyScreen />
+            <SearchByYearScreen />
+            <SearchByBrandScreen />
+            <SearchForCarEngineScreen />
+            <SearchCarByBudgetScreen />
+            <FeaturedShowRoomScreen />
+            <FeaturedCarScreen />
+            <RentCarScreen />
+            <ClientTestimonialScreen />
+            <MoreCarBannerCard />
         </LayoutContainer>
     )
 }
