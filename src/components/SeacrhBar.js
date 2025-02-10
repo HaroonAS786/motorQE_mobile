@@ -4,6 +4,7 @@ import {StyleSheet, View, TextInput, TouchableOpacity} from 'react-native';
 import {FilterIcon, SearchIcon} from '../assets/svgs';
 import {themeColors} from '../config/colors';
 import {SCREEN_WIDTH} from '../config/typography';
+import Spacer from './Spacer';
 
 const SearchBar = ({
   style,
@@ -13,6 +14,7 @@ const SearchBar = ({
   handleSearch,
   editable,
   autoComplete,
+  isRightIcon = false,
 }) => {
   return (
     <View style={[styles.mainWrap, style]}>
@@ -23,15 +25,19 @@ const SearchBar = ({
         editable={editable}
         autoCorrect={false}
         placeholder={placeholder}
-        placeholderTextColor={themeColors.black}
+        placeholderTextColor={themeColors.label}
         style={styles.container}
         onChangeText={onChangeText}
         autoCapitalize={'none'}
         onSubmitEditing={handleSearch}
       />
-      <TouchableOpacity style={styles.filterSvg}>
-        <FilterIcon />
-      </TouchableOpacity>
+      {isRightIcon ? (
+        <TouchableOpacity style={styles.filterSvg}>
+          <FilterIcon />
+        </TouchableOpacity>
+      ) : (
+        <Spacer width={SCREEN_WIDTH * 0.1} />
+      )}
     </View>
   );
 };

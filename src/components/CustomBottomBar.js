@@ -15,7 +15,7 @@ const CustomBottomTabBar = ({state, navigation}) => {
         return <GarageIcon  />;
       case 'AddButton':
         return <SellCarFloatButton onPress={() => {}} />;
-      case 'CarScreen':
+      case 'ViewCarListingScreen':
         return <CarsIcon/>;
       case 'MoreScreen':
         return <MoreIcon  />;

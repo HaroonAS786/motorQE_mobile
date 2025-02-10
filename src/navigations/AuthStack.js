@@ -3,6 +3,7 @@ import React from 'react';
 
 import { ScreenOptions } from '../utils/anim';
 import LoginScreen from '../screens/authentication/loginScreen/LoginScreen';
+import SignUpScreen from '../screens/authentication/signUpScreen/SignUpScreen';
 
 const Stack = createStackNavigator();
 
@@ -10,11 +11,11 @@ const AuthStack = props => {
   return (
     <Stack.Navigator screenOptions={ScreenOptions}>
       <Stack.Screen name={'LoginScreen'} component={LoginScreen} />
-      {/* <Stack.Screen
+      <Stack.Screen
         name={'SignUpScreen'}
         component={SignUpScreen}
         options={{gestureEnabled: false}}
-      /> */}
+      />
       {/* <Stack.Screen
         name={'ForgotPasswordScreen'}
         component={ForgotPasswordScreen}

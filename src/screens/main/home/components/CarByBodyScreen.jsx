@@ -6,6 +6,7 @@ import Spacer from '../../../../components/Spacer';
 import { themeColors } from '../../../../config/colors';
 import CarByBodyCard from './CarByBodyCard';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../../config/typography';
+import { navigationRef } from '../../../../navigations/RootNaviagtion';
 
 const ITEM_WIDTH = SCREEN_WIDTH * 0.3; // Width of each item
 
@@ -81,7 +82,7 @@ const CarByBodyScreen = () => {
                 buttonTextColor={"#0C0CB8"}
                 label={"View all Suv Cars"}
                 buttonContainerStyle={styles.viewAllCarBtn}
-            // onPress={handleLogin}
+                onPress={() => navigationRef.navigate("ViewCarListingScreen")}
             />
             <Spacer height={SCREEN_HEIGHT * 0.05} />
         </View>
@@ -94,8 +95,8 @@ export default CarByBodyScreen
 const styles = StyleSheet.create({
 
     container: {
-        width:SCREEN_WIDTH,
-        paddingHorizontal:16,
+        width: SCREEN_WIDTH,
+        paddingHorizontal: 16,
         justifyContent: 'flex-start'
     },
     dotContainer: {

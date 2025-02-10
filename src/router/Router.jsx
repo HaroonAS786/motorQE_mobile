@@ -7,6 +7,7 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import { navigationRef } from "../navigations/RootNaviagtion";
 import RootStack from "../navigations/RootStack";
 import store from "../redux/store";
+import { FlashMessage } from "../components/FlashNotify";
 
 LogBox.ignoreAllLogs();
 
@@ -18,7 +19,7 @@ const Router = () => {
                 <NavigationContainer ref={navigationRef} >
                     <RootStack />
                 </NavigationContainer>
-                {/* <FlashMessage /> */}
+                <FlashMessage />
             </Provider>
         </ErrorBoundary>
     );

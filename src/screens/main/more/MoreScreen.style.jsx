@@ -4,11 +4,11 @@ import { SCREEN_WIDTH } from '../../../config/typography'
 
 export const getStyles = () => StyleSheet.create({
 
+
     container: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between'
+        width: SCREEN_WIDTH
     },
+
     btnContainer: {
         justifyContent: 'flex-end',
         backgroundColor: themeColors.white,

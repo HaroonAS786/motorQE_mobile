@@ -24,6 +24,8 @@ import { getStyles } from "./LoginScreen.style";
 import { IMAGES } from "../../../assets/images";
 import store from "../../../redux/store";
 import { signIn } from "../../../redux/actions";
+import FlashNotification from "../../../components/FlashNotify";
+import { ENUMS } from "../../../utils/enums";
 
 const LoginScreen = (props) => {
 
@@ -37,7 +39,7 @@ const LoginScreen = (props) => {
     const [passwordToggle, setPasswordToggle] = useState(false);
     const [data, setData] = useState({
         email: {
-            value: "haroon.asif@tkxel.com",
+            value: "taimoor@gmail.com",
             errors: [],
         },
         password: {
@@ -98,7 +100,9 @@ const LoginScreen = (props) => {
                         user: {},
                     })
                 );
+                FlashNotification.show("Login Successfully", ENUMS.SUCCESS);
             }, 3000)
+
             // const body = {
             //     username: data?.email?.value,
             //     password: data?.password?.value,
@@ -135,7 +139,7 @@ const LoginScreen = (props) => {
     return (
         <>
             <LayoutContainer noHeight extraHeight={220}>
-                <Spacer height={SCREEN_HEIGHT * 0.02} />
+                <Spacer height={SCREEN_HEIGHT * 0.1} />
                 <View
                     style={{ alignItems: "center", justifyContent: "center" }}
                 >
@@ -143,12 +147,12 @@ const LoginScreen = (props) => {
                         source={IMAGES.headerLogo}
                     />
                 </View>
-                <Spacer height={SCREEN_HEIGHT * 0.03} />
-                <CustomText color={themeColors.label} h6>Login with Whatsapp</CustomText>
-                <Spacer height={SCREEN_HEIGHT * 0.04} />
+                {/* <Spacer height={SCREEN_HEIGHT * 0.03} /> */}
+                {/* <CustomText color={themeColors.label} h6>Login with Whatsapp</CustomText> */}
+                <Spacer height={SCREEN_HEIGHT * 0.02} />
                 <View style={styles.fieldContainer}>
 
-                    <>
+                    {/* <>
                         <PhoneInput
                             value={formattedValue}
                             defaultCountry={countryCode}
@@ -209,11 +213,12 @@ const LoginScreen = (props) => {
                         label={"GET OTP"}
                         buttonContainerStyle={styles.loginBtn}
                         // onPress={handleLogin}
-                    />
-                    <Spacer height={SCREEN_HEIGHT * 0.03} />
-                    <CustomText color={themeColors.label} style={{ textAlign: 'center' }} body>------  Or login with  ------</CustomText>
+                    /> */}
+                    {/* <Spacer height={SCREEN_HEIGHT * 0.03} /> */}
+                    {/* <CustomText color={themeColors.label} style={{ textAlign: 'center' }} body>------  Or login with  ------</CustomText> */}
                     <Spacer height={SCREEN_HEIGHT * 0.03} />
                     <CustomTextInput
+                        label={"Email"}
                         value={data?.email?.value}
                         spellCheck={false}
                         autoCapitalize={"none"}
@@ -225,6 +230,7 @@ const LoginScreen = (props) => {
                     />
                     <Spacer height={SCREEN_HEIGHT * 0.02} />
                     <CustomTextInput
+                        label={'Password'}
                         value={data?.password?.value}
                         placeholder={"Enter Password"}
                         onChangeText={(t) => handleInput(t, "password")}
@@ -257,23 +263,20 @@ const LoginScreen = (props) => {
                         buttonContainerStyle={styles.googleSignIn}
                     // onPress={handleGoogle}
                     />
-                    <Spacer height={SCREEN_HEIGHT * 0.03} />
+                    <Spacer height={SCREEN_HEIGHT * 0.02} />
                     <View style={styles.footerView}>
-                        <CustomText body semiBold color={themeColors.white}>
-                            Hello
-                        </CustomText>
-                        <CustomText body semiBold color={themeColors.secondary}>
-                            SIGNUP
+                        <CustomText body color={themeColors.label}>
+                            Don’t have an account yet?{" "}
                         </CustomText>
                         <TouchableOpacity onPress={OffToSignUp} activeOpacity={0.6}>
-                            <CustomText body2 color={themeColors.primary}>
-                                Skip
+                            <CustomText body color={themeColors.secondary}>
+                                Sign up
                             </CustomText>
                         </TouchableOpacity>
                     </View>
                 </View>
             </LayoutContainer>
-            <View style={styles.needHelpLabelCon}>
+            {/* <View style={styles.needHelpLabelCon}>
                 <View
                     style={{ alignSelf: "center", padding: 8, width: '80%' }}
                 >
@@ -286,7 +289,7 @@ const LoginScreen = (props) => {
                         Privacy Policy and Terms & Conditions.
                     </CustomText>
                 </View>
-            </View>
+            </View> */}
         </>
     );
 };

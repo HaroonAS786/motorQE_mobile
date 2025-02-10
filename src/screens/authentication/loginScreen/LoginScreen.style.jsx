@@ -19,8 +19,7 @@ export const getStyles = () => StyleSheet.create({
     },
     footerView: {
         flexDirection: 'row',
-        alignItems:'center',
-        justifyContent:'space-between'
+        justifyContent:'center'
     },
     headerView: {
         flexDirection: 'row',

@@ -29,6 +29,7 @@ const HomeScreen = () => {
     return (
         <LayoutContainer noHeight>
             <SearchBar
+                isRightIcon={true}
                 value={searchValue}
                 placeholder={"Search"}
                 onChangeText={(val) => {

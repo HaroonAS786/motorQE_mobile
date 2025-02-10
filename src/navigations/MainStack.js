@@ -6,9 +6,10 @@ import CustomBottomTabBar from '../components/CustomBottomBar';
 import {ScreenOptions} from '../utils/anim';
 import HomeScreen from '../screens/main/home/HomeScreen';
 import GarageScreen from '../screens/main/garages/GarageScreen';
-import CarScreen from '../screens/main/cars/CarScreen';
 import MoreScreen from '../screens/main/more/MoreScreen';
 import {View} from 'react-native';
+import ViewCarListingScreen from '../screens/main/cars/ViewCarListingScreen';
+import CarDetailScreen from '../screens/main/cars/carDetails/CarDetailScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,8 +38,8 @@ const AppBottomTabs = () => {
         />
         <Tab.Screen
           options={{gestureEnabled: false}}
-          name={'CarScreen'}
-          component={CarScreen}
+          name={'ViewCarListingScreen'}
+          component={ViewCarListingScreen}
         />
         <Tab.Screen
           options={{gestureEnabled: false}}
@@ -55,6 +56,7 @@ const MainStack = () => {
     <Stack.Navigator screenOptions={ScreenOptions}>
       {/* <Stack.Screen name={'HomeScreen'} component={HomeScreen} /> */}
       <Stack.Screen name={'AppBottomTabs'} component={AppBottomTabs} />
+      <Stack.Screen name={'CarDetailScreen'} component={CarDetailScreen} />
     </Stack.Navigator>
   );
 };

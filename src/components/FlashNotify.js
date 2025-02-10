@@ -5,7 +5,7 @@ import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } f
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "../assets/svgs";
 import { themeColors } from "../config/colors";
 import { SCREEN_WIDTH } from "../config/typography";
-import { ENUMS } from "../utilities/enums";
+import { ENUMS } from "../utils/enums";
 import CustomText from "./CustomText";
 import Spacer from "./Spacer";
 
